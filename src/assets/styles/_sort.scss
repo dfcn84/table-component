@@ -1,0 +1,25 @@
+.sortable {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: content-box;
+  background-image: url("/assets/icons/arrow-up-down.svg");
+  border: 0;
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgba(222, 218, 250, 0.5);
+    border-radius: 50%;
+  }
+
+  &.asc {
+    background-image: url("/assets/icons/arrow-down.svg");
+  }
+
+  &.desc {
+    background-image: url("/assets/icons/arrow-up.svg");
+  }
+}

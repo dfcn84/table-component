@@ -1,0 +1,64 @@
+@import './mixins';
+
+
+.display {
+  &-none {
+    display: none;
+  }
+
+  &-inline-block {
+    display: inline-block;
+  }
+
+  &-block {
+    display: block;
+  }
+
+  &-flex {
+    display: flex;
+  }
+
+  &-table {
+    display: table;
+  }
+
+  &-table-row {
+    display: table-row;
+  }
+
+  &-xs {
+    @include display_breakpoint('none', xs);
+    @include display_breakpoint('inline-block', xs);
+    @include display_breakpoint('flex', xs);
+    @include display_breakpoint('table', xs);
+    @include display_breakpoint('table-row', xs);
+  }
+  &-sm {
+    @include display_breakpoint('none', sm);
+    @include display_breakpoint('inline-block', sm);
+    @include display_breakpoint('flex', sm);
+    @include display_breakpoint('table', sm);
+    @include display_breakpoint('table-row', sm);
+  }
+  &-md {
+    @include display_breakpoint('none', md);
+    @include display_breakpoint('inline-block', md);
+    @include display_breakpoint('flex', md);
+    @include display_breakpoint('table', md);
+    @include display_breakpoint('table-row', md);
+  }
+  &-lg {
+    @include display_breakpoint('none', lg);
+    @include display_breakpoint('inline-block', lg);
+    @include display_breakpoint('flex', lg);
+    @include display_breakpoint('table', lg);
+    @include display_breakpoint('table-row', lg);
+  }
+  &-xl {
+    @include display_breakpoint('none', xl);
+    @include display_breakpoint('inline-block', xl);
+    @include display_breakpoint('flex', xl);
+    @include display_breakpoint('table', xl);
+    @include display_breakpoint('table-row', xl);
+  }
+}

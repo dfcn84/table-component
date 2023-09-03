@@ -1,0 +1,21 @@
+@import "./mixins";
+@import "./breakpoint_display";
+
+@import url("https://fonts.cdnfonts.com/css/avenir-lt-pro");
+
+:root {
+  font-family: "Avenir LT Pro", sans-serif;
+  --font-size-xs : 16px;
+  --font-size-md : 18px;
+  --font-size-lg : 24px;
+  --table-header-color: #f7f7f7;
+  --table-divider-color: #e1e1e1;
+  --table-selected-row-color: #efedfd;
+  --input-border-color: #a8a8a8;
+  --input-selected-color: #5c50bb;
+  --input-selected-border-color: #5c50bb;
+}
+
+@import "./table";
+@import "./input";
+@import "./sort";

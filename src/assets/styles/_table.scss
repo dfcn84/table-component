@@ -1,0 +1,182 @@
+@import "./mixins.scss";
+
+.table {
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+  border-collapse: collapse;
+  border-radius: 8px;
+
+  @include breakpoint(md) {
+    border-radius: 16px;
+  }
+
+  .table-head {
+    font-weight: 700;
+    background: var(--table-header-color);
+
+    .table-row {
+      &.mobile-header {
+        display: none;
+      }
+
+      .table-column {
+        line-height: 1.75;
+        font-size: var(--font-size-sm);
+        padding: 8px 16px;
+        min-width: 56px;
+        vertical-align: top;
+
+        @include breakpoint(md) {
+          font-size: var(--font-size-md);
+          padding: 24px;
+        }
+
+        @include breakpoint(lg) {
+          font-size: var(--font-size-lg);
+        }
+
+        .table-column-inner {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .table-body {
+    .table-row {
+      position: relative;
+
+      .table-column {
+        vertical-align: top;
+        line-height: 1.75;
+        letter-spacing: 0.028px;
+        font-weight: 350;
+        font-size: var(--font-size-sm);
+        padding: 8px 16px;
+
+        @include breakpoint(md) {
+          font-size: var(--font-size-md);
+          padding: 24px;
+        }
+
+        @include breakpoint(lg) {
+          font-size: var(--font-size-lg);
+        }
+
+        .table-head-label {
+          @include breakpoint(md) {
+            display: none;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        .table-column {
+          &:first-child:before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 1px;
+            background-color: var(--table-divider-color);
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+
+            @include breakpoint(md) {
+              left: 24px;
+              right: 24px;
+            }
+          }
+        }
+      }
+
+      &.selected {
+        background: var(--table-selected-row-color);
+      }
+    }
+  }
+
+  .table-column {
+    &.selection {
+      padding-right: 0;
+    }
+  }
+
+  &.multi-col-collapse {
+    .table-head .table-row:nth-of-type(1),
+    .table-body .table-row {
+      &.has-selection {
+        @include breakpoint_until(sm) {
+          display: grid;
+          grid-template-columns: minmax(0, min-content) auto;
+
+          .selection {
+            grid-row: span var(--table-col);
+            align-content: flex-start;
+          }
+        }
+      }
+    }
+
+    .table-head {
+      .table-row {
+        .table-column {
+          vertical-align: top;
+        }
+        &.mobile-header {
+          display: table-row;
+
+          @include breakpoint(md) {
+            display: none;
+          }
+        }
+        &:not(&.mobile-header) {
+          display: none;
+
+          @include breakpoint(md) {
+            display: table-row;
+          }
+        }
+      }
+    }
+
+    .table-body .table-row {
+      .table-column {
+        vertical-align: top;
+
+        .table-head-label {
+          padding-right: 10px;
+          @include breakpoint(md) {
+            display: none;
+          }
+        }
+
+        &.col-content:not(.selection) {
+          @include breakpoint_until(sm) {
+            padding-bottom: 0;
+            ~ .col-content {
+              padding-top: 0;
+            }
+            &:last-child {
+              padding-bottom: 8px;
+            }
+          }
+        }
+      }
+
+      @include breakpoint_until(sm) {
+        display: grid;
+
+        .table-column {
+          display: grid;
+          grid-template-columns: minmax(max-content, 0.7fr) 1fr;
+
+          .table-head-label {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

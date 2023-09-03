@@ -1,0 +1,72 @@
+.radio-button,
+.checkbox {
+  display: none;
+
+  + label {
+    color: transparent;
+    text-indent: -9999px;
+    border: 1px solid var(--input-border-color);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+
+    @include breakpoint(md) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &:checked + label {
+    border: 1px solid var(--input-selected-border-color);
+    background: var(--input-selected-border-color);
+  }
+
+  &:before {
+    content: "";
+    display: flex;
+    align-self: center;
+    width: 12px;
+    height: 12px;
+
+    @include breakpoint(md) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.radio-button {
+  + label {
+    border-radius: 50%;
+  }
+
+  &:checked + label {
+    background-image: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23f7f7f7"/></svg> ');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include breakpoint(md) {
+      background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8" fill="%23f7f7f7"/></svg> ');
+    }
+  }
+}
+
+.checkbox {
+  + label {
+    border-radius: 8px;
+  }
+
+  &:checked + label {
+    background-image: url("/assets/icons/checked.svg");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include breakpoint(md) {
+      background-size: 16px;
+    }
+  }
+}
